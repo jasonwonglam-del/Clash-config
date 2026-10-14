@@ -1,457 +1,372 @@
-mixed-port: 7890
-redir-port: 7892
-tproxy-port: 7895
-allow-lan: true
-bind-address: "*"
-mode: rule
-log-level: warning
-ipv6: true
-unified-delay: true
-tcp-concurrent: true
-profile:
-  store-selected: true
-  store-fake-ip: true
-geodata-mode: true
-geo-auto-update: true
-geo-update-interval: 24
-geox-url:
-  geoip: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat
-  geosite: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
-  mmdb: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
-sniffer:
-  enable: true
-  sniff:
-    TLS:
-      ports:
-      - 443
-      - 8443
-    HTTP:
-      ports:
-      - 80
-      - 8080-8880
-      override-destination: true
-    QUIC:
-      ports:
-      - 443
-      - 8443
-  skip-domain:
-  - Mijia Cloud
-  - dlg.io.mi.com
-  - "+.push.apple.com"
-  - "+.googlevideo.com"
-  - "+.qq.com"
-  - "+.tencent.com"
-  - "+.wechat.com"
-  - "+.servicewechat.com"
-  - "+.gtimg.com"
-  - "+.gtimg.cn"
-  - "+.qpic.cn"
-  - "+.qlogo.cn"
-  - "+.tenpay.com"
-  - "+.myqcloud.com"
-  - "+.qcloud.com"
-  - "+.douyin.com"
-  - "+.douyincdn.com"
-  - "+.douyinpic.com"
-  - "+.douyinstatic.com"
-  - "+.douyinliving.com"
-  - "+.iesdouyin.com"
-  - "+.douyinvod.com"
-  - "+.douyinvideo.net"
-  - "+.amemv.com"
-  - "+.snssdk.com"
-  - "+.byteimg.com"
-  - "+.bytecdn.cn"
-  - "+.ibytedtos.com"
-  - "+.zijieapi.com"
-  - "+.pstatp.com"
-  - "+.toutiao.com"
-  - "+.toutiaovod.com"
-  - "+.bytedance.net"
-  - "+.xiaohongshu.com"
-  - "+.xhscdn.com"
-  - "+.xhscdn.net"
-  - "+.xhslink.com"
-  - "+.xhsimg.com"
-  - "+.taobao.com"
-  - "+.tmall.com"
-  - "+.tbcdn.cn"
-  - "+.alicdn.com"
-  - "+.alibaba.com"
-  - "+.alibabausercontent.com"
-  - "+.alipay.com"
-  - "+.alipayobjects.com"
-  - "+.goofish.com"
-  - "+.idlefish.com"
-  - "+.aliyun.com"
-  - "+.aliyuncs.com"
-  - "+.mmstat.com"
-  - "+.cainiao.com"
-  - "+.amap.com"
-  - "+.autonavi.com"
-  - "+.115.com"
-  - "+.115cdn.com"
-  - "+.115cdn.net"
-  - "+.115img.com"
-  - "+.116cd.cn"
-  - "+.116cd.com"
-  - "+.116cd.net"
-  - "+.anxia.com"
-  - "+.sq.cc"
-  - fhnfile.oss-cn-shenzhen.aliyuncs.com
-tun:
-  enable: false
-  stack: mixed
-  mtu: 1492
-  dns-hijack:
-  - any:53
-  - tcp://any:53
-  auto-route: true
-  auto-detect-interface: true
-  strict-route: true
-
-# ==================== 🛠️ 节点配置区域 (新手修改这里) ====================
-proxies:
-- name: "自建节点-1"                       # 💡 可以改成你喜欢的名字，如 "香港高防"
-  type: vless
-  server: 【📢 请在此处修改：填入你的服务器IP或域名，例如 123.45.67.89】
-  port: 443
-  ip-version: ipv4
-  udp: true
-  uuid: 【📢 请在此处修改：填入你的VLESS UUID，例如 00000000-0000-0000-0000-000000000000】
-  flow: xtls-rprx-vision
-  packet-encoding: xudp
-  encryption: none
-  network: tcp
-  tls: true
-  servername: www.nvidia.com                 # 💡 sni目标网站也要更改为你vps上的目标网站
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  reality-opts:
-    public-key: 【📢 请在此处修改：填入你的Reality公钥，一长串由字母和数字组成的字符串】
-    short-id: 【📢 请在此处修改：填入你的Short ID，通常是2到16位十六进制字符，如 6a】
-# ====================================================================
-
 proxy-groups:
-- name: PROXY
-  type: select
-  proxies:
-  - AUTO
-  - 自建节点-1                               # 💡 如果上面改了节点名字，这里也要同步修改
-  - DIRECT
-- name: AUTO
-  type: url-test
-  proxies:
-  - 自建节点-1                               # 💡 如果上面改了节点名字，这里也要同步修改
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 50
-  lazy: true
-dns:
-  enable: true
-  listen: 127.0.0.1:1053
-  cache-algorithm: arc
-  ipv6: true
-  prefer-ipv6: false
-  prefer-h3: false
-  use-hosts: true
-  use-system-hosts: true
-  respect-rules: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-range6: fdfe:dcba:9876::1/64
-  fake-ip-filter:
-  - "*.lan"
-  - "*.local"
-  - "+.localdomain"
-  - localhost.ptlogin2.qq.com
-  - "+.qq.com"
-  - "+.tencent.com"
-  - "+.wechat.com"
-  - "+.servicewechat.com"
-  - "+.gtimg.com"
-  - "+.gtimg.cn"
-  - "+.qpic.cn"
-  - "+.qlogo.cn"
-  - "+.tenpay.com"
-  - "+.myqcloud.com"
-  - "+.qcloud.com"
-  - "+.douyin.com"
-  - "+.douyincdn.com"
-  - "+.douyinpic.com"
-  - "+.douyinstatic.com"
-  - "+.douyinliving.com"
-  - "+.iesdouyin.com"
-  - "+.douyinvod.com"
-  - "+.douyinvideo.net"
-  - "+.amemv.com"
-  - "+.snssdk.com"
-  - "+.byteimg.com"
-  - "+.bytecdn.cn"
-  - "+.ibytedtos.com"
-  - "+.zijieapi.com"
-  - "+.pstatp.com"
-  - "+.toutiao.com"
-  - "+.toutiaovod.com"
-  - "+.bytedance.net"
-  - "+.xiaohongshu.com"
-  - "+.xhscdn.com"
-  - "+.xhscdn.net"
-  - "+.xhslink.com"
-  - "+.xhsimg.com"
-  - time.windows.com
-  - time.apple.com
-  - time.android.com
-  - "+.xn--ngstr-lra8j.com"
-  - "+.ntp.org.cn"
-  - "+.pool.ntp.org"
-  default-nameserver:
-  - 223.5.5.5
-  - 119.29.29.29
-  nameserver-policy:
-    "geosite:private,cn,geolocation-cn,apple-cn,microsoft@cn,steam@cn":
-    - 223.5.5.5
-    - 119.29.29.29
-    "+.speedtest.net":
-    - 223.5.5.5
-    - 119.29.29.29
-    "+.ooklaserver.net":
-    - 223.5.5.5
-    - 119.29.29.29
-    "+.speed.cloudflare.com":
-    - 223.5.5.5
-    - 119.29.29.29
-    "+.measurementlab.net":
-    - 223.5.5.5
-    - 119.29.29.29
-    "+.microsoft.com":
-    - 223.5.5.5
-    - 119.29.29.29
-    "+.live.com":
-    - 223.5.5.5
-    - 119.29.29.29
-    "+.office.com":
-    - 223.5.5.5
-    - 119.29.29.29
-    "+.microsoftonline.com":
-    - 223.5.5.5
-    - 119.29.29.29
-    "+.sharepointonline.com":
-    - 223.5.5.5
-    - 119.29.29.29
-    "+.google.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.googleapis.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.googleapis.cn":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.gstatic.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.gvt1.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.gvt2.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.gvt3.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.googleusercontent.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.ggpht.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.android.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.xn--ngstr-lra8j.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.openai.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.chatgpt.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.anthropic.com":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "+.claude.ai":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-    "geosite:geolocation-!cn":
-    - https://1.1.1.1/dns-query#PROXY
-    - https://dns.google/dns-query#PROXY
-  nameserver:
-  - 223.5.5.5
-  - 119.29.29.29
-  - https://dns.alidns.com/dns-query
-  fallback:
-  - https://1.1.1.1/dns-query#PROXY
-  - https://dns.google/dns-query#PROXY
-  proxy-server-nameserver:
-  - 223.5.5.5
-  - 119.29.29.29
-  direct-nameserver:
-  - 223.5.5.5
-  - 119.29.29.29
-  - https://dns.alidns.com/dns-query
-  - https://doh.pub/dns-query
-  direct-nameserver-follow-policy: true
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-    - 240.0.0.0/4
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: ⚡ 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies: []
+
+  - name: 🛑 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+
+  - name: 💬 AI 服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 📺 哔哩哔哩
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 📹 油管视频
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 🔍 谷歌服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 🏠 私有网络
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+
+  - name: 🔒 国内服务
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+
+  - name: 📲 电报消息
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 🐱 Github
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 🍏 苹果服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 🌐 社交媒体
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 🎬 流媒体
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 🎮 游戏平台
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 📚 教育资源
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 💰 金融服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: ☁️ 云服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 🌐 非中国
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ⚡ 自动选择
+      - DIRECT
+
+rule-providers:
+  hrules-private-direct:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/private_direct.yaml
+    path: ./providers/private_direct.yaml
+    interval: 21600
+  hrules-network-test:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/network_test.yaml
+    path: ./providers/network_test.yaml
+    interval: 21600
+  hrules-sensitive-ai:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/sensitive_ai.yaml
+    path: ./providers/sensitive_ai.yaml
+    interval: 21600
+  hrules-general-ai:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/general_ai.yaml
+    path: ./providers/general_ai.yaml
+    interval: 21600
+  hrules-crypto-account:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/crypto_account.yaml
+    path: ./providers/crypto_account.yaml
+    interval: 21600
+  hrules-us-banking-account:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/us_banking_account.yaml
+    path: ./providers/us_banking_account.yaml
+    interval: 21600
+  hrules-brokerage-account:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/brokerage_account.yaml
+    path: ./providers/brokerage_account.yaml
+    interval: 21600
+  hrules-financial-account:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/financial_account.yaml
+    path: ./providers/financial_account.yaml
+    interval: 21600
+  hrules-streaming-media:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/streaming_media.yaml
+    path: ./providers/streaming_media.yaml
+    interval: 21600
+  hrules-youtube-media:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/youtube_media.yaml
+    path: ./providers/youtube_media.yaml
+    interval: 21600
+  hrules-telegram:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/telegram.yaml
+    path: ./providers/telegram.yaml
+    interval: 21600
+  hrules-mainstream-proxy:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/mainstream_proxy.yaml
+    path: ./providers/mainstream_proxy.yaml
+    interval: 21600
+  hrules-apple-global:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/apple_global.yaml
+    path: ./providers/apple_global.yaml
+    interval: 21600
+  hrules-apple-intelligence-route:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/apple_intelligence_route.yaml
+    path: ./providers/apple_intelligence_route.yaml
+    interval: 21600
+  hrules-apple-private-relay-route:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/apple_private_relay_route.yaml
+    path: ./providers/apple_private_relay_route.yaml
+    interval: 21600
+  hrules-cn-direct:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/cn_direct.yaml
+    path: ./providers/cn_direct.yaml
+    interval: 21600
+  hrules-cn-ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
+    path: ./providers/hrules-cn-ip.mrs
+    interval: 21600
+  loyalsoldier-geoip:
+    type: http
+    behavior: ipcidr
+    format: yaml
+    url: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/clash/geoip.yaml
+    path: ./providers/loyalsoldier-geoip.yaml
+    interval: 86400
+  loyalsoldier-direct:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt
+    path: ./providers/loyalsoldier-direct.yaml
+    interval: 86400
+  loyalsoldier-proxy:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt
+    path: ./providers/loyalsoldier-proxy.yaml
+    interval: 86400
+  loyalsoldier-reject:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt
+    path: ./providers/loyalsoldier-reject.yaml
+    interval: 86400
+  hagezi-dns-ultimate:
+    type: http
+    behavior: domain
+    format: text
+    url: https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/ultimate.txt
+    path: ./providers/hagezi-dns-ultimate.txt
+    interval: 86400
+
 rules:
-# 核心优化：强制阿里系应用放弃 QUIC (UDP 443)，瞬间回退 TCP 解决转圈慢的问题
-- AND,((NETWORK,UDP),(DST-PORT,443),(GEOSITE,alibaba)),REJECT
-
-# 局域网与私有 IP 放行
-- IP-CIDR6,::1/128,DIRECT,no-resolve
-- IP-CIDR6,fc00::/7,DIRECT,no-resolve
-- IP-CIDR6,fe80::/10,DIRECT,no-resolve
-- IP-CIDR6,ff00::/8,DIRECT,no-resolve
-- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
-- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-- IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
-- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
-- IP-CIDR,240.0.0.0/4,DIRECT,no-resolve
-
-- GEOSITE,private,DIRECT
-
-# 核心优化：阿里系服务直连 (替代原本冗长的 DOMAIN-SUFFIX，涵盖更全)
-- GEOSITE,alibaba,DIRECT
-
-# 国内 App 专属直连
-- DOMAIN-SUFFIX,qq.com,DIRECT
-- DOMAIN-SUFFIX,tencent.com,DIRECT
-- DOMAIN-SUFFIX,wechat.com,DIRECT
-- DOMAIN-SUFFIX,servicewechat.com,DIRECT
-- DOMAIN-SUFFIX,gtimg.com,DIRECT
-- DOMAIN-SUFFIX,gtimg.cn,DIRECT
-- DOMAIN-SUFFIX,qpic.cn,DIRECT
-- DOMAIN-SUFFIX,qlogo.cn,DIRECT
-- DOMAIN-SUFFIX,tenpay.com,DIRECT
-- DOMAIN-SUFFIX,myqcloud.com,DIRECT
-- DOMAIN-SUFFIX,qcloud.com,DIRECT
-- DOMAIN-SUFFIX,douyin.com,DIRECT
-- DOMAIN-SUFFIX,douyincdn.com,DIRECT
-- DOMAIN-SUFFIX,douyinpic.com,DIRECT
-- DOMAIN-SUFFIX,douyinstatic.com,DIRECT
-- DOMAIN-SUFFIX,douyinliving.com,DIRECT
-- DOMAIN-SUFFIX,iesdouyin.com,DIRECT
-- DOMAIN-SUFFIX,douyinvod.com,DIRECT
-- DOMAIN-SUFFIX,douyinvideo.net,DIRECT
-- DOMAIN-SUFFIX,amemv.com,DIRECT
-- DOMAIN-SUFFIX,snssdk.com,DIRECT
-- DOMAIN-SUFFIX,byteimg.com,DIRECT
-- DOMAIN-SUFFIX,bytecdn.cn,DIRECT
-- DOMAIN-SUFFIX,ibytedtos.com,DIRECT
-- DOMAIN-SUFFIX,zijieapi.com,DIRECT
-- DOMAIN-SUFFIX,pstatp.com,DIRECT
-- DOMAIN-SUFFIX,toutiao.com,DIRECT
-- DOMAIN-SUFFIX,toutiaovod.com,DIRECT
-- DOMAIN-SUFFIX,bytedance.net,DIRECT
-- DOMAIN-SUFFIX,xiaohongshu.com,DIRECT
-- DOMAIN-SUFFIX,xhscdn.com,DIRECT
-- DOMAIN-SUFFIX,xhscdn.net,DIRECT
-- DOMAIN-SUFFIX,xhslink.com,DIRECT
-- DOMAIN-SUFFIX,xhsimg.com,DIRECT
-
-# 115 专属直连
-- DOMAIN-SUFFIX,115.com,DIRECT
-- DOMAIN-SUFFIX,115cdn.com,DIRECT
-- DOMAIN-SUFFIX,115cdn.net,DIRECT
-- DOMAIN-SUFFIX,115img.com,DIRECT
-- DOMAIN-SUFFIX,116cd.cn,DIRECT
-- DOMAIN-SUFFIX,116cd.com,DIRECT
-- DOMAIN-SUFFIX,116cd.net,DIRECT
-- DOMAIN-SUFFIX,anxia.com,DIRECT
-- DOMAIN-SUFFIX,sq.cc,DIRECT
-- DOMAIN,fhnfile.oss-cn-shenzhen.aliyuncs.com,DIRECT
-
-# 测速与连通性检测直连，避免把宽带测速测成代理节点速度
-- DOMAIN-SUFFIX,speedtest.net,DIRECT
-- DOMAIN-SUFFIX,ooklaserver.net,DIRECT
-- DOMAIN-SUFFIX,speedtestcustom.com,DIRECT
-- DOMAIN-SUFFIX,speed.cloudflare.com,DIRECT
-- DOMAIN-SUFFIX,measurementlab.net,DIRECT
-- DOMAIN-SUFFIX,speedtest.cn,DIRECT
-
-# Microsoft/Office/Windows 服务直连，避免后台服务误走不稳定代理
-- GEOSITE,microsoft,DIRECT
-- DOMAIN-SUFFIX,microsoft.com,DIRECT
-- DOMAIN-SUFFIX,msftconnecttest.com,DIRECT
-- DOMAIN-SUFFIX,msftncsi.com,DIRECT
-- DOMAIN-SUFFIX,windowsupdate.com,DIRECT
-- DOMAIN-SUFFIX,office.com,DIRECT
-- DOMAIN-SUFFIX,office.net,DIRECT
-- DOMAIN-SUFFIX,office365.com,DIRECT
-- DOMAIN-SUFFIX,live.com,DIRECT
-- DOMAIN-SUFFIX,live.net,DIRECT
-- DOMAIN-SUFFIX,outlook.com,DIRECT
-- DOMAIN-SUFFIX,microsoftonline.com,DIRECT
-- DOMAIN-SUFFIX,microsoftonline-p.com,DIRECT
-- DOMAIN-SUFFIX,sharepoint.com,DIRECT
-- DOMAIN-SUFFIX,sharepointonline.com,DIRECT
-- DOMAIN-SUFFIX,onedrive.com,DIRECT
-- DOMAIN-SUFFIX,skype.com,DIRECT
-- DOMAIN-SUFFIX,azureedge.net,DIRECT
-- DOMAIN-SUFFIX,msauth.net,DIRECT
-- DOMAIN-SUFFIX,msauthimages.net,DIRECT
-- DOMAIN-SUFFIX,msftauth.net,DIRECT
-- DOMAIN-SUFFIX,msftauthimages.net,DIRECT
-
-# 代理规则 (AI 品牌与 Google 核心服务)
-- DOMAIN-SUFFIX,openai.com,PROXY
-- DOMAIN-SUFFIX,chatgpt.com,PROXY
-- DOMAIN-SUFFIX,anthropic.com,PROXY
-- DOMAIN-SUFFIX,claude.ai,PROXY
-- DOMAIN-SUFFIX,google.com,PROXY
-- DOMAIN-SUFFIX,googleapis.com,PROXY
-- DOMAIN-SUFFIX,googleapis.cn,PROXY
-- DOMAIN-SUFFIX,gstatic.com,PROXY
-- DOMAIN-SUFFIX,gvt1.com,PROXY
-- DOMAIN-SUFFIX,gvt2.com,PROXY
-- DOMAIN-SUFFIX,gvt3.com,PROXY
-- DOMAIN-SUFFIX,googleusercontent.com,PROXY
-- DOMAIN-SUFFIX,ggpht.com,PROXY
-- DOMAIN-SUFFIX,android.com,PROXY
-- DOMAIN-SUFFIX,android.clients.google.com,PROXY
-- DOMAIN-SUFFIX,android.googleapis.com,PROXY
-- DOMAIN-SUFFIX,dl.google.com,PROXY
-- DOMAIN-SUFFIX,dl-ssl.google.com,PROXY
-- DOMAIN-SUFFIX,play.googleapis.com,PROXY
-- DOMAIN-SUFFIX,market.android.com,PROXY
-- DOMAIN-SUFFIX,xn--ngstr-lra8j.com,PROXY
-
-# 基础规则集匹配
-- GEOSITE,google,PROXY
-- GEOSITE,youtube,PROXY
-- GEOSITE,telegram,PROXY
-- GEOSITE,github,PROXY
-- GEOSITE,category-games@cn,DIRECT
-- GEOSITE,apple-cn,DIRECT
-- GEOSITE,apple,DIRECT
-- GEOSITE,microsoft@cn,DIRECT
-- GEOSITE,steam@cn,DIRECT
-- DOMAIN-SUFFIX,cn,DIRECT
-- DOMAIN-SUFFIX,中国,DIRECT
-- DOMAIN-SUFFIX,公司,DIRECT
-- DOMAIN-SUFFIX,网络,DIRECT
-
-# 国内与国外保底分流规则
-- GEOSITE,cn,DIRECT
-- GEOSITE,geolocation-cn,DIRECT
-- GEOIP,CN,DIRECT,no-resolve
-- GEOSITE,geolocation-!cn,PROXY
-- MATCH,PROXY
+  - IP-CIDR,50.118.185.194/32,DIRECT
+  - RULE-SET,hagezi-dns-ultimate,🛑 广告拦截
+  - RULE-SET,loyalsoldier-reject,🛑 广告拦截
+  - RULE-SET,hrules-private-direct,DIRECT,no-resolve
+  - RULE-SET,hrules-cn-direct,DIRECT
+  - RULE-SET,hrules-network-test,💬 AI 服务
+  - RULE-SET,hrules-sensitive-ai,💬 AI 服务
+  - RULE-SET,hrules-general-ai,💬 AI 服务
+  - RULE-SET,hrules-apple-intelligence-route,💬 AI 服务
+  - RULE-SET,hrules-crypto-account,💰 金融服务
+  - RULE-SET,hrules-us-banking-account,🏦 银行服务
+  - RULE-SET,hrules-brokerage-account,📈 证券 / 券商
+  - RULE-SET,hrules-financial-account,💳 支付 / 跨境金融
+  - RULE-SET,hrules-streaming-media,🎬 流媒体
+  - RULE-SET,hrules-youtube-media,📹 油管视频
+  - RULE-SET,hrules-telegram,📲 电报消息,no-resolve
+  - RULE-SET,hrules-apple-private-relay-route,🍏 苹果服务
+  - RULE-SET,hrules-apple-global,🍏 苹果服务
+  - RULE-SET,hrules-mainstream-proxy,🌐 社交媒体
+  - RULE-SET,hrules-cn-ip,DIRECT,no-resolve
+  - RULE-SET,loyalsoldier-direct,DIRECT
+  - RULE-SET,loyalsoldier-proxy,🚀 节点选择
+  - RULE-SET,loyalsoldier-geoip,DIRECT,no-resolve
+  - GEOSITE,category-ads-all,🛑 广告拦截
+  - GEOSITE,category-ai-!cn,💬 AI 服务
+  - GEOSITE,bilibili,📺 哔哩哔哩
+  - GEOSITE,youtube,📹 油管视频
+  - GEOSITE,google,🔍 谷歌服务
+  - GEOSITE,geolocation-cn,🔒 国内服务
+  - GEOSITE,cn,🔒 国内服务
+  - GEOSITE,github,🐱 Github
+  - GEOSITE,gitlab,🐱 Github
+  - GEOSITE,microsoft,Ⓜ️ 微软服务
+  - GEOSITE,apple,🍏 苹果服务
+  - GEOSITE,facebook,🌐 社交媒体
+  - GEOSITE,instagram,🌐 社交媒体
+  - GEOSITE,twitter,🌐 社交媒体
+  - GEOSITE,tiktok,🌐 社交媒体
+  - GEOSITE,linkedin,🌐 社交媒体
+  - GEOSITE,netflix,🎬 流媒体
+  - GEOSITE,hulu,🎬 流媒体
+  - GEOSITE,disney,🎬 流媒体
+  - GEOSITE,hbo,🎬 流媒体
+  - GEOSITE,amazon,🎬 流媒体
+  - GEOSITE,bahamut,🎬 流媒体
+  - GEOSITE,steam,🎮 游戏平台
+  - GEOSITE,epicgames,🎮 游戏平台
+  - GEOSITE,ea,🎮 游戏平台
+  - GEOSITE,ubisoft,🎮 游戏平台
+  - GEOSITE,blizzard,🎮 游戏平台
+  - GEOSITE,coursera,📚 教育资源
+  - GEOSITE,edx,📚 教育资源
+  - GEOSITE,udemy,📚 教育资源
+  - GEOSITE,khanacademy,📚 教育资源
+  - GEOSITE,category-scholar-!cn,📚 教育资源
+  - GEOSITE,paypal,💰 金融服务
+  - GEOSITE,visa,💰 金融服务
+  - GEOSITE,mastercard,💰 金融服务
+  - GEOSITE,stripe,💰 金融服务
+  - GEOSITE,wise,💰 金融服务
+  - GEOSITE,aws,☁️ 云服务
+  - GEOSITE,azure,☁️ 云服务
+  - GEOSITE,digitalocean,☁️ 云服务
+  - GEOSITE,heroku,☁️ 云服务
+  - GEOSITE,dropbox,☁️ 云服务
+  - GEOSITE,geolocation-!cn,🌐 非中国
+  - GEOIP,google,🔍 谷歌服务
+  - GEOIP,private,🏠 私有网络
+  - GEOIP,cn,🔒 国内服务
+  - GEOIP,telegram,📲 电报消息
+  - MATCH,🐟 漏网之鱼
