@@ -2,163 +2,145 @@ proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
-      - PROXY
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
+
+  - name: ⚡ 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies: []
 
   - name: 🛑 广告拦截
     type: select
     proxies:
       - REJECT
       - DIRECT
-    include-all-proxies: true
 
   - name: 💬 AI 服务
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 📺 哔哩哔哩
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 📹 油管视频
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 🔍 谷歌服务
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 🏠 私有网络
     type: select
     proxies:
       - DIRECT
-      - PROXY
-    include-all-proxies: true
+      - 🚀 节点选择
 
   - name: 🔒 国内服务
     type: select
     proxies:
       - DIRECT
-      - PROXY
-    include-all-proxies: true
+      - 🚀 节点选择
 
   - name: 📲 电报消息
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 🐱 Github
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 🍏 苹果服务
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 🌐 社交媒体
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 🎬 流媒体
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 🎮 游戏平台
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 📚 教育资源
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 💰 金融服务
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
-
-  - name: 🏦 银行服务
-    type: select
-    proxies:
-      - PROXY
-      - DIRECT
-    include-all-proxies: true
-
-  - name: 📈 证券 / 券商
-    type: select
-    proxies:
-      - PROXY
-      - DIRECT
-    include-all-proxies: true
-
-  - name: 💳 支付 / 跨境金融
-    type: select
-    proxies:
-      - PROXY
-      - DIRECT
-    include-all-proxies: true
 
   - name: ☁️ 云服务
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 🌐 非中国
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
   - name: 🐟 漏网之鱼
     type: select
     proxies:
-      - PROXY
+      - 🚀 节点选择
+      - ⚡ 自动选择
       - DIRECT
-    include-all-proxies: true
 
 rule-providers:
   hrules-private-direct:
@@ -168,7 +150,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/private_direct.yaml
     path: ./providers/private_direct.yaml
     interval: 21600
-
   hrules-network-test:
     type: http
     behavior: classical
@@ -176,7 +157,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/network_test.yaml
     path: ./providers/network_test.yaml
     interval: 21600
-
   hrules-sensitive-ai:
     type: http
     behavior: classical
@@ -184,7 +164,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/sensitive_ai.yaml
     path: ./providers/sensitive_ai.yaml
     interval: 21600
-
   hrules-general-ai:
     type: http
     behavior: classical
@@ -192,7 +171,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/general_ai.yaml
     path: ./providers/general_ai.yaml
     interval: 21600
-
   hrules-crypto-account:
     type: http
     behavior: classical
@@ -200,7 +178,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/crypto_account.yaml
     path: ./providers/crypto_account.yaml
     interval: 21600
-
   hrules-us-banking-account:
     type: http
     behavior: classical
@@ -208,7 +185,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/us_banking_account.yaml
     path: ./providers/us_banking_account.yaml
     interval: 21600
-
   hrules-brokerage-account:
     type: http
     behavior: classical
@@ -216,7 +192,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/brokerage_account.yaml
     path: ./providers/brokerage_account.yaml
     interval: 21600
-
   hrules-financial-account:
     type: http
     behavior: classical
@@ -224,7 +199,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/financial_account.yaml
     path: ./providers/financial_account.yaml
     interval: 21600
-
   hrules-streaming-media:
     type: http
     behavior: classical
@@ -232,7 +206,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/streaming_media.yaml
     path: ./providers/streaming_media.yaml
     interval: 21600
-
   hrules-youtube-media:
     type: http
     behavior: classical
@@ -240,7 +213,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/youtube_media.yaml
     path: ./providers/youtube_media.yaml
     interval: 21600
-
   hrules-telegram:
     type: http
     behavior: classical
@@ -248,7 +220,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/telegram.yaml
     path: ./providers/telegram.yaml
     interval: 21600
-
   hrules-mainstream-proxy:
     type: http
     behavior: classical
@@ -256,7 +227,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/mainstream_proxy.yaml
     path: ./providers/mainstream_proxy.yaml
     interval: 21600
-
   hrules-apple-global:
     type: http
     behavior: classical
@@ -264,7 +234,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/apple_global.yaml
     path: ./providers/apple_global.yaml
     interval: 21600
-
   hrules-apple-intelligence-route:
     type: http
     behavior: classical
@@ -272,7 +241,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/apple_intelligence_route.yaml
     path: ./providers/apple_intelligence_route.yaml
     interval: 21600
-
   hrules-apple-private-relay-route:
     type: http
     behavior: classical
@@ -280,7 +248,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/apple_private_relay_route.yaml
     path: ./providers/apple_private_relay_route.yaml
     interval: 21600
-
   hrules-cn-direct:
     type: http
     behavior: classical
@@ -288,7 +255,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/cn_direct.yaml
     path: ./providers/cn_direct.yaml
     interval: 21600
-
   hrules-cn-ip:
     type: http
     behavior: ipcidr
@@ -296,7 +262,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
     path: ./providers/hrules-cn-ip.mrs
     interval: 21600
-
   loyalsoldier-geoip:
     type: http
     behavior: ipcidr
@@ -304,7 +269,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/clash/geoip.yaml
     path: ./providers/loyalsoldier-geoip.yaml
     interval: 86400
-
   loyalsoldier-direct:
     type: http
     behavior: classical
@@ -312,7 +276,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt
     path: ./providers/loyalsoldier-direct.yaml
     interval: 86400
-
   loyalsoldier-proxy:
     type: http
     behavior: classical
@@ -320,7 +283,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt
     path: ./providers/loyalsoldier-proxy.yaml
     interval: 86400
-
   loyalsoldier-reject:
     type: http
     behavior: classical
@@ -328,7 +290,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt
     path: ./providers/loyalsoldier-reject.yaml
     interval: 86400
-
   hagezi-dns-ultimate:
     type: http
     behavior: domain
