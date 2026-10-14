@@ -345,6 +345,7 @@ rules:
   - GEOSITE,amazon,🎬 流媒体
   - GEOSITE,bahamut,🎬 流媒体
   - GEOSITE,steam,🎮 游戏平台
+  - GEOSENT,epicgames,🎮 游戏平台
   - GEOSITE,epicgames,🎮 游戏平台
   - GEOSITE,ea,🎮 游戏平台
   - GEOSITE,ubisoft,🎮 游戏平台
