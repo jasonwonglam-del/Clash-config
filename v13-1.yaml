@@ -1,124 +1,165 @@
 proxy-groups:
-- name: 🚀 节点选择
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 🛑 广告拦截
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 💬 AI 服务
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 📺 哔哩哔哩
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 📹 油管视频
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 🔍 谷歌服务
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 🏠 私有网络
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 🔒 国内服务
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 📲 电报消息
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 🐱 Github
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: Ⓜ️ 微软服务
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 🍏 苹果服务
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 🌐 社交媒体
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 🎬 流媒体
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 🎮 游戏平台
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 📚 教育资源
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 💰 金融服务
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: ☁️ 云服务
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 🌐 非中国
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
-- name: 🐟 漏网之鱼
-  type: select
-  proxies:
-  - PROXY
-  - DIRECT
-  include-all-proxies: true
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 🛑 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 💬 AI 服务
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 📺 哔哩哔哩
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 📹 油管视频
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 🔍 谷歌服务
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 🏠 私有网络
+    type: select
+    proxies:
+      - DIRECT
+      - PROXY
+    include-all-proxies: true
+
+  - name: 🔒 国内服务
+    type: select
+    proxies:
+      - DIRECT
+      - PROXY
+    include-all-proxies: true
+
+  - name: 📲 电报消息
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 🐱 Github
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 🍏 苹果服务
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 🌐 社交媒体
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 🎬 流媒体
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 🎮 游戏平台
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 📚 教育资源
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 💰 金融服务
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 🏦 银行服务
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 📈 证券 / 券商
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 💳 支付 / 跨境金融
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: ☁️ 云服务
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 🌐 非中国
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
+    include-all-proxies: true
+
 rule-providers:
   hrules-private-direct:
     type: http
@@ -127,6 +168,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/private_direct.yaml
     path: ./providers/private_direct.yaml
     interval: 21600
+
   hrules-network-test:
     type: http
     behavior: classical
@@ -134,6 +176,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/network_test.yaml
     path: ./providers/network_test.yaml
     interval: 21600
+
   hrules-sensitive-ai:
     type: http
     behavior: classical
@@ -141,6 +184,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/sensitive_ai.yaml
     path: ./providers/sensitive_ai.yaml
     interval: 21600
+
   hrules-general-ai:
     type: http
     behavior: classical
@@ -148,6 +192,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/general_ai.yaml
     path: ./providers/general_ai.yaml
     interval: 21600
+
   hrules-crypto-account:
     type: http
     behavior: classical
@@ -155,6 +200,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/crypto_account.yaml
     path: ./providers/crypto_account.yaml
     interval: 21600
+
   hrules-us-banking-account:
     type: http
     behavior: classical
@@ -162,6 +208,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/us_banking_account.yaml
     path: ./providers/us_banking_account.yaml
     interval: 21600
+
   hrules-brokerage-account:
     type: http
     behavior: classical
@@ -169,6 +216,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/brokerage_account.yaml
     path: ./providers/brokerage_account.yaml
     interval: 21600
+
   hrules-financial-account:
     type: http
     behavior: classical
@@ -176,6 +224,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/financial_account.yaml
     path: ./providers/financial_account.yaml
     interval: 21600
+
   hrules-streaming-media:
     type: http
     behavior: classical
@@ -183,6 +232,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/streaming_media.yaml
     path: ./providers/streaming_media.yaml
     interval: 21600
+
   hrules-youtube-media:
     type: http
     behavior: classical
@@ -190,6 +240,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/youtube_media.yaml
     path: ./providers/youtube_media.yaml
     interval: 21600
+
   hrules-telegram:
     type: http
     behavior: classical
@@ -197,6 +248,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/telegram.yaml
     path: ./providers/telegram.yaml
     interval: 21600
+
   hrules-mainstream-proxy:
     type: http
     behavior: classical
@@ -204,6 +256,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/mainstream_proxy.yaml
     path: ./providers/mainstream_proxy.yaml
     interval: 21600
+
   hrules-apple-global:
     type: http
     behavior: classical
@@ -211,6 +264,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/apple_global.yaml
     path: ./providers/apple_global.yaml
     interval: 21600
+
   hrules-apple-intelligence-route:
     type: http
     behavior: classical
@@ -218,6 +272,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/apple_intelligence_route.yaml
     path: ./providers/apple_intelligence_route.yaml
     interval: 21600
+
   hrules-apple-private-relay-route:
     type: http
     behavior: classical
@@ -225,6 +280,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/apple_private_relay_route.yaml
     path: ./providers/apple_private_relay_route.yaml
     interval: 21600
+
   hrules-cn-direct:
     type: http
     behavior: classical
@@ -232,6 +288,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/hcloudlab/Hrules/main/mihomo/scenes/cn_direct.yaml
     path: ./providers/cn_direct.yaml
     interval: 21600
+
   hrules-cn-ip:
     type: http
     behavior: ipcidr
@@ -239,6 +296,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
     path: ./providers/hrules-cn-ip.mrs
     interval: 21600
+
   loyalsoldier-geoip:
     type: http
     behavior: ipcidr
@@ -246,6 +304,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/clash/geoip.yaml
     path: ./providers/loyalsoldier-geoip.yaml
     interval: 86400
+
   loyalsoldier-direct:
     type: http
     behavior: classical
@@ -253,6 +312,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt
     path: ./providers/loyalsoldier-direct.yaml
     interval: 86400
+
   loyalsoldier-proxy:
     type: http
     behavior: classical
@@ -260,6 +320,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt
     path: ./providers/loyalsoldier-proxy.yaml
     interval: 86400
+
   loyalsoldier-reject:
     type: http
     behavior: classical
@@ -267,6 +328,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt
     path: ./providers/loyalsoldier-reject.yaml
     interval: 86400
+
   hagezi-dns-ultimate:
     type: http
     behavior: domain
@@ -274,75 +336,76 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/ultimate.txt
     path: ./providers/hagezi-dns-ultimate.txt
     interval: 86400
+
 rules:
-- IP-CIDR,50.118.185.194/32,DIRECT
-- RULE-SET,hagezi-dns-ultimate,🛑 广告拦截
-- RULE-SET,loyalsoldier-reject,🛑 广告拦截
-- RULE-SET,hrules-private-direct,DIRECT,no-resolve
-- RULE-SET,hrules-cn-direct,DIRECT
-- RULE-SET,hrules-network-test,💬 AI 服务
-- RULE-SET,hrules-sensitive-ai,💬 AI 服务
-- RULE-SET,hrules-general-ai,💬 AI 服务
-- RULE-SET,hrules-apple-intelligence-route,💬 AI 服务
-- RULE-SET,hrules-crypto-account,💰 金融服务
-- RULE-SET,hrules-us-banking-account,🏦 银行服务
-- RULE-SET,hrules-brokerage-account,📈 证券 / 券商
-- RULE-SET,hrules-financial-account,💳 支付 / 跨境金融
-- RULE-SET,hrules-streaming-media,🎬 流媒体
-- RULE-SET,hrules-youtube-media,📹 油管视频
-- RULE-SET,hrules-telegram,📲 电报消息,no-resolve
-- RULE-SET,hrules-apple-private-relay-route,🍏 苹果服务
-- RULE-SET,hrules-apple-global,🍏 苹果服务
-- RULE-SET,hrules-mainstream-proxy,🌐 社交媒体
-- RULE-SET,hrules-cn-ip,DIRECT,no-resolve
-- RULE-SET,loyalsoldier-direct,DIRECT
-- RULE-SET,loyalsoldier-proxy,🚀 节点选择
-- RULE-SET,loyalsoldier-geoip,DIRECT,no-resolve
-- GEOSITE,category-ads-all,🛑 广告拦截
-- GEOSITE,category-ai-!cn,💬 AI 服务
-- GEOSITE,bilibili,📺 哔哩哔哩
-- GEOSITE,youtube,📹 油管视频
-- GEOSITE,google,🔍 谷歌服务
-- GEOSITE,geolocation-cn,🔒 国内服务
-- GEOSITE,cn,🔒 国内服务
-- GEOSITE,github,🐱 Github
-- GEOSITE,gitlab,🐱 Github
-- GEOSITE,microsoft,Ⓜ️ 微软服务
-- GEOSITE,apple,🍏 苹果服务
-- GEOSITE,facebook,🌐 社交媒体
-- GEOSITE,instagram,🌐 社交媒体
-- GEOSITE,twitter,🌐 社交媒体
-- GEOSITE,tiktok,🌐 社交媒体
-- GEOSITE,linkedin,🌐 社交媒体
-- GEOSITE,netflix,🎬 流媒体
-- GEOSITE,hulu,🎬 流媒体
-- GEOSITE,disney,🎬 流媒体
-- GEOSITE,hbo,🎬 流媒体
-- GEOSITE,amazon,🎬 流媒体
-- GEOSITE,bahamut,🎬 流媒体
-- GEOSITE,steam,🎮 游戏平台
-- GEOSITE,epicgames,🎮 游戏平台
-- GEOSITE,ea,🎮 游戏平台
-- GEOSITE,ubisoft,🎮 游戏平台
-- GEOSITE,blizzard,🎮 游戏平台
-- GEOSITE,coursera,📚 教育资源
-- GEOSITE,edx,📚 教育资源
-- GEOSITE,udemy,📚 教育资源
-- GEOSITE,khanacademy,📚 教育资源
-- GEOSITE,category-scholar-!cn,📚 教育资源
-- GEOSITE,paypal,💰 金融服务
-- GEOSITE,visa,💰 金融服务
-- GEOSITE,mastercard,💰 金融服务
-- GEOSITE,stripe,💰 金融服务
-- GEOSITE,wise,💰 金融服务
-- GEOSITE,aws,☁️ 云服务
-- GEOSITE,azure,☁️ 云服务
-- GEOSITE,digitalocean,☁️ 云服务
-- GEOSITE,heroku,☁️ 云服务
-- GEOSITE,dropbox,☁️ 云服务
-- GEOSITE,geolocation-!cn,🌐 非中国
-- GEOIP,google,🔍 谷歌服务
-- GEOIP,private,🏠 私有网络
-- GEOIP,cn,🔒 国内服务
-- GEOIP,telegram,📲 电报消息
-- MATCH,🐟 漏网之鱼
+  - IP-CIDR,50.118.185.194/32,DIRECT
+  - RULE-SET,hagezi-dns-ultimate,🛑 广告拦截
+  - RULE-SET,loyalsoldier-reject,🛑 广告拦截
+  - RULE-SET,hrules-private-direct,DIRECT,no-resolve
+  - RULE-SET,hrules-cn-direct,DIRECT
+  - RULE-SET,hrules-network-test,💬 AI 服务
+  - RULE-SET,hrules-sensitive-ai,💬 AI 服务
+  - RULE-SET,hrules-general-ai,💬 AI 服务
+  - RULE-SET,hrules-apple-intelligence-route,💬 AI 服务
+  - RULE-SET,hrules-crypto-account,💰 金融服务
+  - RULE-SET,hrules-us-banking-account,🏦 银行服务
+  - RULE-SET,hrules-brokerage-account,📈 证券 / 券商
+  - RULE-SET,hrules-financial-account,💳 支付 / 跨境金融
+  - RULE-SET,hrules-streaming-media,🎬 流媒体
+  - RULE-SET,hrules-youtube-media,📹 油管视频
+  - RULE-SET,hrules-telegram,📲 电报消息,no-resolve
+  - RULE-SET,hrules-apple-private-relay-route,🍏 苹果服务
+  - RULE-SET,hrules-apple-global,🍏 苹果服务
+  - RULE-SET,hrules-mainstream-proxy,🌐 社交媒体
+  - RULE-SET,hrules-cn-ip,DIRECT,no-resolve
+  - RULE-SET,loyalsoldier-direct,DIRECT
+  - RULE-SET,loyalsoldier-proxy,🚀 节点选择
+  - RULE-SET,loyalsoldier-geoip,DIRECT,no-resolve
+  - GEOSITE,category-ads-all,🛑 广告拦截
+  - GEOSITE,category-ai-!cn,💬 AI 服务
+  - GEOSITE,bilibili,📺 哔哩哔哩
+  - GEOSITE,youtube,📹 油管视频
+  - GEOSITE,google,🔍 谷歌服务
+  - GEOSITE,geolocation-cn,🔒 国内服务
+  - GEOSITE,cn,🔒 国内服务
+  - GEOSITE,github,🐱 Github
+  - GEOSITE,gitlab,🐱 Github
+  - GEOSITE,microsoft,Ⓜ️ 微软服务
+  - GEOSITE,apple,🍏 苹果服务
+  - GEOSITE,facebook,🌐 社交媒体
+  - GEOSITE,instagram,🌐 社交媒体
+  - GEOSITE,twitter,🌐 社交媒体
+  - GEOSITE,tiktok,🌐 社交媒体
+  - GEOSITE,linkedin,🌐 社交媒体
+  - GEOSITE,netflix,🎬 流媒体
+  - GEOSITE,hulu,🎬 流媒体
+  - GEOSITE,disney,🎬 流媒体
+  - GEOSITE,hbo,🎬 流媒体
+  - GEOSITE,amazon,🎬 流媒体
+  - GEOSITE,bahamut,🎬 流媒体
+  - GEOSITE,steam,🎮 游戏平台
+  - GEOSITE,epicgames,🎮 游戏平台
+  - GEOSITE,ea,🎮 游戏平台
+  - GEOSITE,ubisoft,🎮 游戏平台
+  - GEOSITE,blizzard,🎮 游戏平台
+  - GEOSITE,coursera,📚 教育资源
+  - GEOSITE,edx,📚 教育资源
+  - GEOSITE,udemy,📚 教育资源
+  - GEOSITE,khanacademy,📚 教育资源
+  - GEOSITE,category-scholar-!cn,📚 教育资源
+  - GEOSITE,paypal,💰 金融服务
+  - GEOSITE,visa,💰 金融服务
+  - GEOSITE,mastercard,💰 金融服务
+  - GEOSITE,stripe,💰 金融服务
+  - GEOSITE,wise,💰 金融服务
+  - GEOSITE,aws,☁️ 云服务
+  - GEOSITE,azure,☁️ 云服务
+  - GEOSITE,digitalocean,☁️ 云服务
+  - GEOSITE,heroku,☁️ 云服务
+  - GEOSITE,dropbox,☁️ 云服务
+  - GEOSITE,geolocation-!cn,🌐 非中国
+  - GEOIP,google,🔍 谷歌服务
+  - GEOIP,private,🏠 私有网络
+  - GEOIP,cn,🔒 国内服务
+  - GEOIP,telegram,📲 电报消息
+  - MATCH,🐟 漏网之鱼
