@@ -23,124 +23,25 @@ proxy-groups:
     proxies:
       - 🚀 节点选择
       - ⚡ 自动选择
-      - DIRECT
-
-  - name: 📺 哔哩哔哩
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
-
-  - name: 📹 油管视频
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
-
-  - name: 🔍 谷歌服务
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
-
-  - name: 🏠 私有网络
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-
-  - name: 🔒 国内服务
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-
-  - name: 📲 电报消息
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
-
-  - name: 🐱 Github
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
-
-  - name: Ⓜ️ 微软服务
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
 
   - name: 🍏 苹果服务
     type: select
     proxies:
       - 🚀 节点选择
-      - ⚡ 自动选择
       - DIRECT
 
-  - name: 🌐 社交媒体
+  - name: 🌐 代理通用
     type: select
     proxies:
       - 🚀 节点选择
       - ⚡ 自动选择
       - DIRECT
 
-  - name: 🎬 流媒体
+  - name: 🔒 国内直连
     type: select
     proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
       - DIRECT
-
-  - name: 🎮 游戏平台
-    type: select
-    proxies:
       - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
-
-  - name: 📚 教育资源
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
-
-  - name: 💰 金融服务
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
-
-  - name: ☁️ 云服务
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
-
-  - name: 🌐 非中国
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
-
-  - name: 🐟 漏网之鱼
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ⚡ 自动选择
-      - DIRECT
 
 rule-providers:
   hrules-private-direct:
@@ -308,65 +209,65 @@ rules:
   - RULE-SET,hrules-sensitive-ai,💬 AI 服务
   - RULE-SET,hrules-general-ai,💬 AI 服务
   - RULE-SET,hrules-apple-intelligence-route,💬 AI 服务
-  - RULE-SET,hrules-crypto-account,💰 金融服务
-  - RULE-SET,hrules-us-banking-account,🏦 银行服务
-  - RULE-SET,hrules-brokerage-account,📈 证券 / 券商
-  - RULE-SET,hrules-financial-account,💳 支付 / 跨境金融
-  - RULE-SET,hrules-streaming-media,🎬 流媒体
-  - RULE-SET,hrules-youtube-media,📹 油管视频
-  - RULE-SET,hrules-telegram,📲 电报消息,no-resolve
+  - RULE-SET,hrules-crypto-account,🌐 代理通用
+  - RULE-SET,hrules-us-banking-account,🌐 代理通用
+  - RULE-SET,hrules-brokerage-account,🌐 代理通用
+  - RULE-SET,hrules-financial-account,🌐 代理通用
+  - RULE-SET,hrules-streaming-media,🌐 代理通用
+  - RULE-SET,hrules-youtube-media,🌐 代理通用
+  - RULE-SET,hrules-telegram,🌐 代理通用,no-resolve
   - RULE-SET,hrules-apple-private-relay-route,🍏 苹果服务
   - RULE-SET,hrules-apple-global,🍏 苹果服务
-  - RULE-SET,hrules-mainstream-proxy,🌐 社交媒体
+  - RULE-SET,hrules-mainstream-proxy,🌐 代理通用
   - RULE-SET,hrules-cn-ip,DIRECT,no-resolve
   - RULE-SET,loyalsoldier-direct,DIRECT
   - RULE-SET,loyalsoldier-proxy,🚀 节点选择
   - RULE-SET,loyalsoldier-geoip,DIRECT,no-resolve
   - GEOSITE,category-ads-all,🛑 广告拦截
   - GEOSITE,category-ai-!cn,💬 AI 服务
-  - GEOSITE,bilibili,📺 哔哩哔哩
-  - GEOSITE,youtube,📹 油管视频
-  - GEOSITE,google,🔍 谷歌服务
-  - GEOSITE,geolocation-cn,🔒 国内服务
-  - GEOSITE,cn,🔒 国内服务
-  - GEOSITE,github,🐱 Github
-  - GEOSITE,gitlab,🐱 Github
-  - GEOSITE,microsoft,Ⓜ️ 微软服务
+  - GEOSITE,bilibili,🔒 国内直连
+  - GEOSITE,youtube,🌐 代理通用
+  - GEOSITE,google,🌐 代理通用
+  - GEOSITE,geolocation-cn,🔒 国内直连
+  - GEOSITE,cn,🔒 国内直连
+  - GEOSITE,github,🌐 代理通用
+  - GEOSITE,gitlab,🌐 代理通用
+  - GEOSITE,microsoft,🔒 国内直连
   - GEOSITE,apple,🍏 苹果服务
-  - GEOSITE,facebook,🌐 社交媒体
-  - GEOSITE,instagram,🌐 社交媒体
-  - GEOSITE,twitter,🌐 社交媒体
-  - GEOSITE,tiktok,🌐 社交媒体
-  - GEOSITE,linkedin,🌐 社交媒体
-  - GEOSITE,netflix,🎬 流媒体
-  - GEOSITE,hulu,🎬 流媒体
-  - GEOSITE,disney,🎬 流媒体
-  - GEOSITE,hbo,🎬 流媒体
-  - GEOSITE,amazon,🎬 流媒体
-  - GEOSITE,bahamut,🎬 流媒体
-  - GEOSITE,steam,🎮 游戏平台
-  - GEOSITE,epicgames,🎮 游戏平台
-  - GEOSITE,ea,🎮 游戏平台
-  - GEOSITE,ubisoft,🎮 游戏平台
-  - GEOSITE,blizzard,🎮 游戏平台
-  - GEOSITE,coursera,📚 教育资源
-  - GEOSITE,edx,📚 教育资源
-  - GEOSITE,udemy,📚 教育资源
-  - GEOSITE,khanacademy,📚 教育资源
-  - GEOSITE,category-scholar-!cn,📚 教育资源
-  - GEOSITE,paypal,💰 金融服务
-  - GEOSITE,visa,💰 金融服务
-  - GEOSITE,mastercard,💰 金融服务
-  - GEOSITE,stripe,💰 金融服务
-  - GEOSITE,wise,💰 金融服务
-  - GEOSITE,aws,☁️ 云服务
-  - GEOSITE,azure,☁️ 云服务
-  - GEOSITE,digitalocean,☁️ 云服务
-  - GEOSITE,heroku,☁️ 云服务
-  - GEOSITE,dropbox,☁️ 云服务
-  - GEOSITE,geolocation-!cn,🌐 非中国
-  - GEOIP,google,🔍 谷歌服务
-  - GEOIP,private,🏠 私有网络
-  - GEOIP,cn,🔒 国内服务
-  - GEOIP,telegram,📲 电报消息
-  - MATCH,🐟 漏网之鱼
+  - GEOSITE,facebook,🌐 代理通用
+  - GEOSITE,instagram,🌐 代理通用
+  - GEOSITE,twitter,🌐 代理通用
+  - GEOSITE,tiktok,🌐 代理通用
+  - GEOSITE,linkedin,🌐 代理通用
+  - GEOSITE,netflix,🌐 代理通用
+  - GEOSITE,hulu,🌐 代理通用
+  - GEOSITE,disney,🌐 代理通用
+  - GEOSITE,hbo,🌐 代理通用
+  - GEOSITE,amazon,🌐 代理通用
+  - GEOSITE,bahamut,🌐 代理通用
+  - GEOSITE,steam,🌐 代理通用
+  - GEOSITE,epicgames,🌐 代理通用
+  - GEOSITE,ea,🌐 代理通用
+  - GEOSITE,ubisoft,🌐 代理通用
+  - GEOSITE,blizzard,🌐 代理通用
+  - GEOSITE,coursera,🌐 代理通用
+  - GEOSITE,edx,🌐 代理通用
+  - GEOSITE,udemy,🌐 代理通用
+  - GEOSITE,khanacademy,🌐 代理通用
+  - GEOSITE,category-scholar-!cn,🌐 代理通用
+  - GEOSITE,paypal,🌐 代理通用
+  - GEOSITE,visa,🌐 代理通用
+  - GEOSITE,mastercard,🌐 代理通用
+  - GEOSITE,stripe,🌐 代理通用
+  - GEOSITE,wise,🌐 代理通用
+  - GEOSITE,aws,🌐 代理通用
+  - GEOSITE,azure,🌐 代理通用
+  - GEOSITE,digitalocean,🌐 代理通用
+  - GEOSITE,heroku,🌐 代理通用
+  - GEOSITE,dropbox,🌐 代理通用
+  - GEOSITE,geolocation-!cn,🌐 代理通用
+  - GEOIP,google,🌐 代理通用
+  - GEOIP,private,🔒 国内直连
+  - GEOIP,cn,🔒 国内直连
+  - GEOIP,telegram,🌐 代理通用
+  - MATCH,🚀 节点选择
