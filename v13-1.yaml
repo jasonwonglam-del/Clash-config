@@ -158,9 +158,9 @@ rule-providers:
   loyalsoldier-geoip:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/clash/geoip.yaml
-    path: ./providers/loyalsoldier-geoip.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
+    path: ./providers/loyalsoldier-geoip.mrs
     interval: 86400
   loyalsoldier-direct:
     type: http
@@ -171,17 +171,17 @@ rule-providers:
     interval: 86400
   loyalsoldier-proxy:
     type: http
-    behavior: classical
-    format: yaml
-    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt
-    path: ./providers/loyalsoldier-proxy.yaml
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geosite/gfw.mrs
+    path: ./providers/loyalsoldier-proxy.mrs
     interval: 86400
   loyalsoldier-reject:
     type: http
-    behavior: classical
-    format: yaml
-    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt
-    path: ./providers/loyalsoldier-reject.yaml
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geosite/category-ads-all.mrs
+    path: ./providers/loyalsoldier-reject.mrs
     interval: 86400
   hagezi-dns-ultimate:
     type: http
