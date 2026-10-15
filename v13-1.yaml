@@ -164,10 +164,10 @@ rule-providers:
     interval: 86400
   loyalsoldier-direct:
     type: http
-    behavior: classical
-    format: yaml
-    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt
-    path: ./providers/loyalsoldier-direct.yaml
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geosite/cn.mrs
+    path: ./providers/loyalsoldier-direct.mrs
     interval: 86400
   loyalsoldier-proxy:
     type: http
