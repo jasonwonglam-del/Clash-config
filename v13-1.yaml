@@ -2,6 +2,7 @@ proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
+      - PROXY
       - DIRECT
 
   - name: 🛑 广告拦截
