@@ -2,17 +2,8 @@ proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
-      - ⚡ 自动选择
       - PROXY
       - DIRECT
-
-  - name: ⚡ 自动选择
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - PROXY
 
   - name: 🛑 广告拦截
     type: select
@@ -24,7 +15,7 @@ proxy-groups:
     type: select
     proxies:
       - 🚀 节点选择
-      - ⚡ 自动选择
+      - DIRECT
 
   - name: 🍏 苹果服务
     type: select
@@ -36,7 +27,6 @@ proxy-groups:
     type: select
     proxies:
       - 🚀 节点选择
-      - ⚡ 自动选择
       - DIRECT
 
   - name: 🔒 国内直连
